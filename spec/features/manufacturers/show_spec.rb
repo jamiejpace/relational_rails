@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Manufacturer index' do
+RSpec.describe 'Manufacturer show' do
   before :each do
     @brown_forman = Manufacturer.create!(name: "Brown-Forman", year_established: 1870, domestic: true)
     @diageo = Manufacturer.create!(name: "Diageo", year_established: 1997, domestic: false)
