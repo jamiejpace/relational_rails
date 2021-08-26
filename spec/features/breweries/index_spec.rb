@@ -12,6 +12,7 @@ RSpec.describe 'Brewery index' do
   # Then I see the name of each parent record in the system
   it 'shows all of the names of the breweries' do
     visit '/breweries'
+    save_and_open_page
 
     expect(page).to have_content(@platt_park.name)
     expect(page).to have_content(@left_hand.name)
