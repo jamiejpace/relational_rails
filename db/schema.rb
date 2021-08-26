@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_25_004955) do
+ActiveRecord::Schema.define(version: 2021_08_25_231109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2021_08_25_004955) do
     t.boolean "clear"
     t.float "abv"
     t.integer "proof"
-    t.string "type"
+    t.string "booze_type"
     t.bigint "manufacturer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2021_08_25_004955) do
   create_table "brews", force: :cascade do |t|
     t.string "name"
     t.float "abv"
-    t.string "type"
+    t.string "beer_type"
     t.boolean "gluten_free"
     t.boolean "on_tap"
     t.bigint "brewery_id"

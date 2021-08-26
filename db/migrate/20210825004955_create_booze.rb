@@ -5,7 +5,7 @@ class CreateBooze < ActiveRecord::Migration[5.2]
       t.boolean :clear
       t.float :abv
       t.integer :proof
-      t.string :type
+      t.string :booze_type
       t.references :manufacturer, foreign_key: true
 
       t.timestamps
