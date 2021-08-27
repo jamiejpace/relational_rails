@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/breweries', to: 'breweries#index'
   get '/breweries/:id', to: 'breweries#show'
   get '/brews', to: 'brews#index'
+  get '/brews/:id', to: 'brews#show'
   get '/manufacturers', to: 'manufacturers#index'
   get '/manufacturers/:id', to: 'manufacturers#show'
 end
