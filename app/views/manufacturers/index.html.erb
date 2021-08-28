@@ -1,4 +1,4 @@
 <h1>Manufacturers</h1>
-<% @manufacturers.each do |manufacturer| %>
-  <p><%= manufacturer.name %></p>
+<% @manufacturers.order(:created_at).each do |manufacturer| %>
+  <p><%= manufacturer.name %> (created_at: <%= manufacturer.created_at %>)</p>
 <% end %>
