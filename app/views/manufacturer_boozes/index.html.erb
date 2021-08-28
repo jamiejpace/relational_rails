@@ -1,0 +1,8 @@
+<h1>List of Liquor's Created By: <%= @manufacturer.name %></h1>
+<% @boozes.each do |booze| %>
+  <h3><%= booze.name %></h3>
+  <p>ABV: <%= booze.abv %></p>
+  <p>Proof: <%= booze.proof %></p>
+  <p>Type: <%= booze.booze_type %></p>
+  <p>Clear? <%= booze.clear %></p>
+<% end %>
