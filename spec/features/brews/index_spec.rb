@@ -18,10 +18,7 @@ RSpec.describe 'Brew index' do
     @peach = @odell.brews.create!(name: "Peach Stand Rambler Blonde Ale", abv: 5.1, beer_type: "Blonde Ale", gluten_free: false, on_tap: true)
     @drumroll = @odell.brews.create!(name: "Drumroll", abv: 5.3, beer_type: "Pale Ale", gluten_free: false, on_tap: false)
   end
-  # For each parent table
-  # As a visitor
-  # When I visit '/parents'
-  # Then I see the name of each parent record in the system
+
   it 'displays all of the names of the brews and their attributes' do
     visit '/brews'
     save_and_open_page
@@ -31,11 +28,6 @@ RSpec.describe 'Brew index' do
     expect(page).to have_content(@peach.on_tap)
   end
 
-#   User Story 8, Child Index Link
-#
-# As a visitor
-# When I visit any page on the site
-# Then I see a link at the top of the page that takes me to the Child Index
   it 'displays a link at the top of each page that takes user to the brews index' do
     visit '/breweries'
     save_and_open_page
