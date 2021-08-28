@@ -27,10 +27,20 @@ RSpec.describe 'Manufacturer index' do
   it "displays creation date and time for each manufacturer" do
     visit '/manufacturers'
     save_and_open_page
-    
+
     expect(page).to have_content(@brown_forman.name)
     expect(page).to have_content(@diageo.name)
     expect(page).to have_content(@campari_group.name)
   end
 
+  it 'displays a link at the top of each page that takes user to the booze index' do
+    visit '/boozes'
+    save_and_open_page
+
+    expect(page).to have_link("Manufacturers Index", :href=>"/manufacturers")
+
+    click_link('Manufacturers Index')
+
+    expect(current_path).to eq('/manufacturers')
+  end
 end
