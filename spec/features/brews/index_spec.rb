@@ -40,11 +40,7 @@ RSpec.describe 'Brew index' do
     visit '/breweries'
     save_and_open_page
 
-    expect(page).to have_link("Brews Index", )
-  end
-
-  xit 'has brews link that takes user to brews index page' do
-    visit '/breweries'
+    expect(page).to have_link("Brews Index", :href=>"/brews")
 
     click_link('Brews Index')
 
