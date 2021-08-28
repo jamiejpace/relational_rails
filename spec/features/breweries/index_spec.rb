@@ -19,19 +19,19 @@ RSpec.describe 'Brewery index' do
     expect(page).to have_content(@odell.name)
   end
 
-  it 'displays breweries by most recently created first' do
+  it 'displays breweries in ascending order by creation date' do
     visit '/breweries'
     save_and_open_page
 
     expect(@platt_park.name).to appear_before(@left_hand.name)
   end
 
-  it 'displays created at information for each brewery' do
+  it 'displays creation date and time for each brewery' do
     visit '/breweries'
     save_and_open_page
 
     expect(page).to have_content(@left_hand.created_at)
-    expect(page).to have_content(@left_hand.created_at)
-    expect(page).to have_content(@left_hand.created_at)
+    expect(page).to have_content(@platt_park.created_at)
+    expect(page).to have_content(@odell.created_at)
   end
 end
