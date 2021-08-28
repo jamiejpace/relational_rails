@@ -1,5 +1,5 @@
 <h1>List of Beers Brewed by <%= @brewery.name %></h1>
-<%= @brews.each do |brew| %>
+<% @brews.each do |brew| %>
   <h3><%= brew.name %></h3>
   <p>ABV: <%= brew.abv %></p>
   <p>Type: <%= brew.beer_type %></p>
