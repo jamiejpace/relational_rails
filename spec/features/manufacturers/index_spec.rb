@@ -27,9 +27,10 @@ RSpec.describe 'Manufacturer index' do
   it "displays creation date and time for each manufacturer" do
     visit '/manufacturers'
     save_and_open_page
+    
     expect(page).to have_content(@brown_forman.name)
     expect(page).to have_content(@diageo.name)
     expect(page).to have_content(@campari_group.name)
   end
-  
+
 end
