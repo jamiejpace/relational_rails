@@ -30,4 +30,20 @@ RSpec.describe 'Brew index' do
     expect(page).to have_content(@flamingo.abv)
     expect(page).to have_content(@peach.on_tap)
   end
+
+#   User Story 8, Child Index Link
+#
+# As a visitor
+# When I visit any page on the site
+# Then I see a link at the top of the page that takes me to the Child Index
+  it 'displays a link at the top of each page that takes user to the brews index' do
+    visit '/breweries'
+    save_and_open_page
+
+    expect(page).to have_link("Brews Index", :href=>"/brews")
+
+    click_link('Brews Index')
+
+    expect(current_path).to eq('/brews')
+  end
 end

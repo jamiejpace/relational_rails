@@ -1,3 +1,5 @@
+<a href="/brews">Brews Index</a>
+<a href="/breweries">Breweries Index</a>
 <h1>Manufacturers</h1>
 <% @manufacturers.order(:created_at).each do |manufacturer| %>
   <p><%= manufacturer.name %> (created_at: <%= manufacturer.created_at %>)</p>

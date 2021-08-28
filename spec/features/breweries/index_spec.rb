@@ -34,4 +34,15 @@ RSpec.describe 'Brewery index' do
     expect(page).to have_content(@platt_park.created_at)
     expect(page).to have_content(@odell.created_at)
   end
+
+  it 'displays a link at the top of each page that takes user to the breweries index' do
+    visit '/brews'
+    save_and_open_page
+
+    expect(page).to have_link("Breweries Index", :href=>"/breweries")
+
+    click_link('Breweries Index')
+
+    expect(current_path).to eq('/breweries')
+  end
 end
