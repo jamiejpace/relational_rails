@@ -1,0 +1,8 @@
+<h1>List of Beers Brewed by <%= @brewery.name %></h1>
+<%= @brews.each do |brew| %>
+  <h3><%= brew.name %></h3>
+  <p>ABV: <%= brew.abv %></p>
+  <p>Type: <%= brew.beer_type %></p>
+  <p>Gluten free? <%= brew.gluten_free %></p>
+  <p>Currently on tap? <%= brew.on_tap %></p>
+<% end %>
