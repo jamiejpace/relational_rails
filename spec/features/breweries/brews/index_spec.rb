@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Brew show' do
+RSpec.describe 'Brewery brews index' do
   before :each do
     @platt_park = Brewery.create!(name: "Platt Park Brewing", year_established: 2013, food_available: true)
     @left_hand = Brewery.create!(name: "Left Hand Brewing", year_established: 2006, food_available: false)
@@ -18,16 +18,13 @@ RSpec.describe 'Brew show' do
     @peach = @odell.brews.create!(name: "Peach Stand Rambler Blonde Ale", abv: 5.1, beer_type: "Blonde Ale", gluten_free: false, on_tap: true)
     @drumroll = @odell.brews.create!(name: "Drumroll", abv: 5.3, beer_type: "Pale Ale", gluten_free: false, on_tap: false)
   end
-  
-  it 'shows the brew with the given id including that brews attributes' do
-    visit "/brews/#{@tiki.id}"
+
+  it "displays all the brews associated with the specified brewery and each brew's attributes" do
+    visit "/breweries/#{@odell.id}/brews"
     save_and_open_page
 
-    expect(page).to have_content(@tiki.name)
-    expect(page).to have_content(@tiki.abv)
-    expect(page).to have_content(@tiki.on_tap)
-    expect(page).to have_content(@tiki.gluten_free)
-    expect(page).to have_content(@tiki.beer_type)
-    expect(page).not_to have_content(@flamingo.name)
+    expect(page).to have_content(@sippin.name)
+    expect(page).to have_content(@peach.abv)
+    expect(page).to have_content(@drumroll.on_tap)
   end
 end
