@@ -31,4 +31,5 @@ RSpec.describe 'Manufacturer index' do
     expect(page).to have_content(@diageo.name)
     expect(page).to have_content(@campari_group.name)
   end
+  
 end
