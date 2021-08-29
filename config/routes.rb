@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get '/brews/:id', to: 'brews#show'
   get '/breweries/:id/brews', to: 'brewery_brews#index'
   get '/manufacturers', to: 'manufacturers#index'
+  get '/manufacturers/new', to: 'manufacturers#new'
+  post '/manufacturers', to: 'manufacturers#create'
   get '/manufacturers/:id', to: 'manufacturers#show'
   get '/boozes', to: 'boozes#index'
   get '/boozes/:id', to: 'boozes#show'
