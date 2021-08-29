@@ -7,3 +7,4 @@
 <p>Domestic? <%= @manufacturer.domestic %></p>
 <p>Number of Boozes Created By This Manufacturer: <%= @manufacturer.boozes.count %></p>
 <%= link_to "List of Their Booze", "/manufacturers/#{@manufacturer.id}/boozes" %>
+<%= link_to "Update Manufacturer", "/manufacturers/#{@manufacturer.id}/edit" %>
