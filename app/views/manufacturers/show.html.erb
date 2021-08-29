@@ -6,3 +6,4 @@
 <p>Year Established: <%= @manufacturer.year_established %></p>
 <p>Domestic? <%= @manufacturer.domestic %></p>
 <p>Number of Boozes Created By This Manufacturer: <%= @manufacturer.boozes.count %></p>
+<%= link_to "List of Their Booze", "/manufacturers/#{@manufacturer.id}/boozes" %>
