@@ -1,0 +1,10 @@
+<%= form_with url: "/manufacturers/#{@manufacturer.id}", method: :patch, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :year_established %>
+  <%= form.text_field :year_established %>
+  <%= form.label :domestic %>
+  <%= form.text_field :domestic %>
+
+  <%= form.submit "Submit changes" %>
+<% end %>
