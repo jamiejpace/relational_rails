@@ -10,3 +10,4 @@
   <p>Gluten free? <%= brew.gluten_free %></p>
   <p>Currently on tap? <%= brew.on_tap %></p>
 <% end %>
+<%= link_to "Create Brew", "/breweries/#{@brewery.id}/brews/new" %>
