@@ -20,4 +20,17 @@ RSpec.describe 'brewery creation' do
 
     expect(current_path).to eq('/breweries/new')
   end
+
+  it 'can create a new brewery using a form' do
+    visit '/breweries/new'
+    save_and_open_page
+
+    fill_in('Name', with: 'Great Divide Brewing')
+    fill_in('Year established', with: 2004)
+    fill_in('Food available', with: true)
+    click_button('Create Brewery')
+
+    expect(current_path).to eq('/breweries')
+    expect(page).to have_content("Great Divide Brewing")
+  end
 end
