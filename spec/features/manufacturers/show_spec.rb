@@ -19,20 +19,31 @@ RSpec.describe 'Manufacturer show' do
     @skyy = @campari_group.boozes.create!(name: "SKYY", clear: true, abv: 40.0, proof: 80, booze_type: "Vodka")
   end
 
-    it "shows the manufacturer with that id including the manufacturers     attributes" do
+  it "shows the manufacturer with that id including the manufacturers     attributes" do
 
-      visit "/manufacturers/#{@campari_group.id}"
-      save_and_open_page
+    visit "/manufacturers/#{@campari_group.id}"
+    save_and_open_page
 
-      expect(page).to have_content(@campari_group.name)
-      expect(page).to have_content(@campari_group.year_established)
-      expect(page).to have_content(@campari_group.domestic)
-    end
+    expect(page).to have_content(@campari_group.name)
+    expect(page).to have_content(@campari_group.year_established)
+    expect(page).to have_content(@campari_group.domestic)
+  end
 
-    it "shows the number of boozes manufactured by this company" do
-      visit "/manufacturers/#{@diageo.id}"
-      save_and_open_page
+  it "shows the number of boozes manufactured by this company" do
+    visit "/manufacturers/#{@diageo.id}"
+    save_and_open_page
 
-      expect(page).to have_content(@diageo.boozes.count)
-    end
+    expect(page).to have_content(@diageo.boozes.count)
+  end
+
+  it 'displays a link on each page that takes user to the booze index per manufacturer' do
+    visit "/manufacturers/#{@diageo.id}"
+    save_and_open_page
+
+    expect(page).to have_link("List of Their Booze", :href=>"/manufacturers/#{@diageo.id}/boozes")
+
+    click_link('List of Their Booze')
+
+    expect(current_path).to eq("/manufacturers/#{@diageo.id}/boozes")
+  end
 end
