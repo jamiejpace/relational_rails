@@ -1,6 +1,9 @@
 <a href="/brews">Brews Index</a>
 <a href="/breweries">Breweries Index</a>
+<a href="/boozes">Booze Index</a>
+<a href="/manufacturers">Manufacturers Index</a>
 <h1><%= @brewery.name %></h1>
 <p>Year Established: <%= @brewery.year_established %></p>
 <p>Is food served on site? <%= @brewery.food_available %></p>
 <p>Number of Brews Created By This Brewery <%= @brewery.brews.count %></p>
+<%= link_to "List of Their Brews", "/breweries/#{@brewery.id}/brews" %>

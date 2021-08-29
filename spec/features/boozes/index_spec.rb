@@ -31,4 +31,15 @@ RSpec.describe 'Manufacturer index' do
     expect(page).to have_content(@herradura.proof)
     expect(page).to have_content(@skyy.clear)
   end
+
+  it 'displays a link at the top of each page that takes user to the booze index' do
+    visit '/manufacturers'
+    save_and_open_page
+
+    expect(page).to have_link("Booze Index", :href=>"/boozes")
+
+    click_link('Booze Index')
+
+    expect(current_path).to eq('/boozes')
+  end
 end
