@@ -6,3 +6,4 @@
 <% @manufacturers.order(:created_at).each do |manufacturer| %>
   <p><%= manufacturer.name %> (created_at: <%= manufacturer.created_at %>)</p>
 <% end %>
+<%= link_to "New Manufacturer", "/manufacturers/new" %>
