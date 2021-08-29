@@ -4,3 +4,5 @@
 <% @breweries.order(:created_at).each do |brewery| %>
   <p><%= brewery.name %> (created at: <%= brewery.created_at %>)</p>
 <% end %>
+
+<%= link_to "New Brewery", "/breweries/new" %>
