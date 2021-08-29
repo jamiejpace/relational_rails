@@ -1,0 +1,10 @@
+<%= form_with url: '/breweries', method: :post, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :year_established %>
+  <%= form.text_field :year_established %>
+  <%= form.label :food_available %>
+  <%= form.text_field :food_available %>
+
+  <%= form.submit "Create Brewery" %>
+<% end %>
