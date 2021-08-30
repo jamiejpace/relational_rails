@@ -19,12 +19,22 @@ RSpec.describe 'Brewery brews index' do
     @drumroll = @odell.brews.create!(name: "Drumroll", abv: 5.3, beer_type: "Pale Ale", gluten_free: false, on_tap: false)
   end
 
-  it "displays all the brews associated with the specified brewery and each brew's attributes" do
+  it 'displays all the brews associated with the specified brewery and each brews attributes' do
     visit "/breweries/#{@odell.id}/brews"
-    save_and_open_page
 
     expect(page).to have_content(@sippin.name)
     expect(page).to have_content(@peach.abv)
     expect(page).to have_content(@drumroll.on_tap)
+  end
+
+  it 'has a link to sort brews in alphabetical order' do
+    visit "/breweries/#{@odell.id}/brews"
+
+    click_link 'Sort Brews Alphabetically'
+
+    expect(current_path).to eq("/breweries/#{@odell.id}/brews")
+
+    expect(@drumroll.name).to appear_before(@peach.name)
+    expect(@peach.name).to appear_before(@sippin.name)
   end
 end
