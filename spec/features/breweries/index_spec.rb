@@ -45,4 +45,16 @@ RSpec.describe 'Brewery index' do
 
     expect(current_path).to eq('/breweries')
   end
+
+  it 'has a link next to every Brewery that takes user to brewery edit page' do
+    visit '/breweries'
+
+    expect(page).to have_link("Update #{@platt_park.name}", :href=>"/breweries/#{@platt_park.id}/edit")
+    expect(page).to have_link("Update #{@odell.name}", :href=>"/breweries/#{@odell.id}/edit")
+    expect(page).to have_link("Update #{@left_hand.name}", :href=>"/breweries/#{@left_hand.id}/edit")
+
+    click_link("Update #{@platt_park.name}")
+    save_and_open_page
+    expect(current_path).to eq("/breweries/#{@platt_park.id}/edit")
+  end
 end
