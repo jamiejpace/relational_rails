@@ -37,4 +37,14 @@ RSpec.describe 'Brewery brews index' do
     expect(@drumroll.name).to appear_before(@peach.name)
     expect(@peach.name).to appear_before(@sippin.name)
   end
+
+  it 'has a link next to the Brew that takes user to the brew edit page' do
+    visit "/breweries/#{@odell.id}/brews"
+
+    expect(page).to have_link("Update #{@peach.name}", :href=>"/brews/#{@peach.id}/edit")
+
+    click_link("Update #{@peach.name}")
+
+    expect(current_path).to eq("/brews/#{@peach.id}/edit")
+  end
 end
