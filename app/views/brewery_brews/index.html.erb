@@ -3,10 +3,13 @@
 <a href="/boozes">Booze Index</a>
 <a href="/manufacturers">Manufacturers Index</a>
 <h1>List of Beers Brewed by <%= @brewery.name %></h1>
-<% @brews.each do |brew| %>
+<% @brews.order(:name).each do |brew| %>
   <h3><%= brew.name %></h3>
   <p>ABV: <%= brew.abv %></p>
   <p>Type: <%= brew.beer_type %></p>
   <p>Gluten free? <%= brew.gluten_free %></p>
   <p>Currently on tap? <%= brew.on_tap %></p>
+  <p><%= link_to "Update #{brew.name}", "/brews/#{brew.id}/edit" %></p>
 <% end %>
+<%= link_to "Create Brew", "/breweries/#{@brewery.id}/brews/new" %>
+<%= link_to "Sort Brews Alphabetically", "/breweries/#{@brewery.id}/brews" %>

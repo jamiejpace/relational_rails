@@ -1,0 +1,14 @@
+<%= form_with url: "/brews/#{@brew.id}", method: :patch, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :abv %>
+  <%= form.text_field :abv %>
+  <%= form.label :beer_type %>
+  <%= form.text_field :beer_type %>
+  <%= form.label :gluten_free %>
+  <%= form.text_field :gluten_free %>
+  <%= form.label :on_tap %>
+  <%= form.text_field :on_tap %>
+
+  <%= form.submit "Update Brew" %>
+<% end %>

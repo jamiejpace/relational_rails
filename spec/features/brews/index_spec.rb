@@ -38,4 +38,23 @@ RSpec.describe 'Brew index' do
 
     expect(current_path).to eq('/brews')
   end
+
+  it 'only displays brews that are on tap' do
+    visit '/brews'
+
+    expect(page).to have_content("Peach Stand Rambler Blonde Ale")
+    expect(page).to_not have_content("Drumroll")
+  end
+
+  it 'has a link next to every Brew that takes user to the brew edit page' do
+    visit '/brews'
+
+    expect(page).to have_link("Update #{@watermelon.name}", :href=>"/brews/#{@watermelon.id}/edit")
+    expect(page).to have_link("Update #{@sippin.name}", :href=>"/brews/#{@sippin.id}/edit")
+    expect(page).to have_link("Update #{@cowboy.name}", :href=>"/brews/#{@cowboy.id}/edit")
+
+    click_link("Update #{@cowboy.name}")
+
+    expect(current_path).to eq("/brews/#{@cowboy.id}/edit")
+  end
 end
