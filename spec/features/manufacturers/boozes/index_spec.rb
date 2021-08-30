@@ -28,4 +28,17 @@ RSpec.describe 'Manufacturer index' do
       expect(page).to have_content(@baileys.proof)
       expect(page).to have_content(@don_julio.clear)
     end
+
+    it "can sort boozes in alphabetical order" do
+      visit "manufacturers/#{@diageo.id}/boozes"
+      save_and_open_page
+
+      click_link "Sort Booze Alphabetically"
+
+      expect(current_path).to eq("/manufacturers/#{@diageo.id}/boozes")
+      expect(@baileys.name).to appear_before(@don_julio.name)
+      expect(@don_julio.name).to appear_before(@tanqueray.name)
+    end
+
+    
   end

@@ -3,7 +3,7 @@
 <a href="/boozes">Booze Index</a>
 <a href="/manufacturers">Manufacturers Index</a>
 <h1>List of Liquor's Created By: <%= @manufacturer.name %></h1>
-<% @boozes.each do |booze| %>
+<% @boozes.order(:name).each do |booze| %>
   <h3><%= booze.name %></h3>
   <p>ABV: <%= booze.abv %></p>
   <p>Proof: <%= booze.proof %></p>
@@ -11,3 +11,4 @@
   <p>Clear? <%= booze.clear %></p>
 <% end %>
 <%= link_to "Create Booze", "/manufacturers/#{@manufacturer.id}/boozes/new" %>
+<%= link_to "Sort Booze Alphabetically", "/manufacturers/#{@manufacturer.id}/boozes" %>
