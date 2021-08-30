@@ -3,7 +3,7 @@
 <a href="/boozes">Booze Index</a>
 <a href="/manufacturers">Manufacturers Index</a>
 <h1>Brews</h1>
-<% @brews.each do |brew| %>
+<% @brews.is_on_tap.each do |brew| %>
   <h3><%= brew.name %></h3>
   <p>Brewed by: <%= brew.brewery.name %></p>
   <p>ABV: <%= brew.abv %></p>

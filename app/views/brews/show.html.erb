@@ -8,3 +8,4 @@
 <p>Type: <%= @brew.beer_type %></p>
 <p>Gluten free? <%= @brew.gluten_free %></p>
 <p>Currently on tap? <%= @brew.on_tap %></p>
+<%= link_to "Update Brew", "/brews/#{@brew.id}/edit" %>

@@ -38,4 +38,11 @@ RSpec.describe 'Brew index' do
 
     expect(current_path).to eq('/brews')
   end
+
+  it 'only displays brews that are on tap' do
+    visit '/brews'
+
+    expect(page).to have_content("Peach Stand Rambler Blonde Ale")
+    expect(page).to_not have_content("Drumroll")
+  end
 end
