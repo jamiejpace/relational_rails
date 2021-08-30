@@ -22,4 +22,8 @@ Rails.application.routes.draw do
   get '/boozes', to: 'boozes#index'
   get '/boozes/:id', to: 'boozes#show'
   get '/manufacturers/:id/boozes', to: 'manufacturer_boozes#index'
+  get '/manufacturers/:id/boozes/new', to: 'manufacturer_boozes#new'
+  post '/manufacturers/:id/boozes', to: 'manufacturer_boozes#create'
+  get '/boozes/:id/edit', to: 'boozes#edit'
+  patch '/boozes/:id', to: 'boozes#update'
 end
