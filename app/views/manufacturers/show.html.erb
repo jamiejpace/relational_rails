@@ -8,3 +8,4 @@
 <p>Number of Boozes Created By This Manufacturer: <%= @manufacturer.boozes.count %></p>
 <%= link_to "List of Their Booze", "/manufacturers/#{@manufacturer.id}/boozes" %>
 <%= link_to "Update Manufacturer", "/manufacturers/#{@manufacturer.id}/edit" %>
+<%= link_to "Delete Manufacturer", "/manufacturers/#{@manufacturer.id}", method: :delete %>

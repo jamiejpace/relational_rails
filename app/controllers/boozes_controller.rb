@@ -17,6 +17,12 @@ class BoozesController < ApplicationController
     redirect_to "/boozes/#{booze.id}"
   end
 
+  def destroy
+    booze = Booze.find(params[:id])
+    booze.destroy
+    redirect_to "/boozes"
+  end
+
 private
   def booze_params
     params.permit(:name, :clear, :abv, :proof, :booze_type)
