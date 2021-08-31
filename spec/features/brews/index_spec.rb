@@ -21,7 +21,6 @@ RSpec.describe 'Brew index' do
 
   it 'displays all of the names of the brews and their attributes' do
     visit '/brews'
-    save_and_open_page
 
     expect(page).to have_content(@watermelon.name)
     expect(page).to have_content(@flamingo.abv)
@@ -30,7 +29,6 @@ RSpec.describe 'Brew index' do
 
   it 'displays a link at the top of each page that takes user to the brews index' do
     visit '/breweries'
-    save_and_open_page
 
     expect(page).to have_link("Brews Index", :href=>"/brews")
 

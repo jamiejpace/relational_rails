@@ -23,7 +23,6 @@ RSpec.describe 'brewery creation' do
 
   it 'can create a new brewery using a form' do
     visit '/breweries/new'
-    save_and_open_page
 
     fill_in('Name', with: 'Great Divide Brewing')
     fill_in('Year established', with: 2004)

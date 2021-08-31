@@ -1,13 +1,3 @@
-# User Story 20, Child Delete (x2)
-#
-# As a visitor
-# When I visit a child show page
-# Then I see a link to delete the child "Delete Child"
-# When I click the link
-# Then a 'DELETE' request is sent to '/child_table_name/:id',
-# the child is deleted,
-# and I am redirected to the child index page where I no longer see this child
-
 require 'rails_helper'
 
 RSpec.describe 'destroy brew' do
