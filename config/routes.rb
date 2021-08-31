@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   get '/breweries/:id/brews', to: 'brewery_brews#index'
   get '/breweries/:id/brews/new', to: 'brewery_brews#new'
   post '/breweries/:id/brews', to: 'brewery_brews#create'
+
+
+
+  
   get '/manufacturers', to: 'manufacturers#index'
   get '/manufacturers/new', to: 'manufacturers#new'
   post '/manufacturers', to: 'manufacturers#create'
@@ -22,4 +26,10 @@ Rails.application.routes.draw do
   get '/boozes', to: 'boozes#index'
   get '/boozes/:id', to: 'boozes#show'
   get '/manufacturers/:id/boozes', to: 'manufacturer_boozes#index'
+  get '/manufacturers/:id/boozes/new', to: 'manufacturer_boozes#new'
+  post '/manufacturers/:id/boozes', to: 'manufacturer_boozes#create'
+  get '/boozes/:id/edit', to: 'boozes#edit'
+  patch '/boozes/:id', to: 'boozes#update'
+  delete '/manufacturers/:id', to: 'manufacturers#destroy'
+  delete '/boozes/:id', to: 'boozes#destroy'
 end
