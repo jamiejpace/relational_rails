@@ -1,4 +1,4 @@
-#  Relational Rails: Booze & Brews
+#  Relational Rails: 🥃 Booze & Brews 🍺
 ## Table of contents
 * [General Info](#general-info)
 * [Learning Goals](#learning-goals)
