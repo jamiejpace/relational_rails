@@ -9,3 +9,4 @@
 <p>Gluten free? <%= @brew.gluten_free %></p>
 <p>Currently on tap? <%= @brew.on_tap %></p>
 <%= link_to "Update Brew", "/brews/#{@brew.id}/edit" %>
+<%= link_to "Delete Brew", "/brews/#{@brew.id}", method: :delete %>

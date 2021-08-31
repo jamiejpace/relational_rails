@@ -8,3 +8,4 @@
 <p>Number of Brews Created By This Brewery <%= @brewery.brews.count %></p>
 <%= link_to "List of Their Brews", "/breweries/#{@brewery.id}/brews" %><br>
 <%= link_to "Update Brewery", "/breweries/#{@brewery.id}/edit" %>
+<%= link_to "Delete Brewery", "/breweries/#{@brewery.id}", method: :delete %>

@@ -17,6 +17,12 @@ class BrewsController < ApplicationController
     redirect_to "/brews/#{brew.id}"
   end
 
+  def destroy
+    brew = Brew.find(params[:id])
+    brew.destroy
+    redirect_to '/brews'
+  end
+
 private
   def brew_params
     params.permit(:name, :abv, :beer_type, :gluten_free, :on_tap)
