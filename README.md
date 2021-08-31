@@ -1,7 +1,7 @@
 ###  Relational Rails: Booze & Brews
 ## Table of contents
 * [General Info](#general-info)
-* [Learning Goals] (#learning-goals)
+* [Learning Goals](#learning-goals)
 * [Screenshots](#screenshots)
 * [Technologies](#technologies)
 * [Status](#status)
