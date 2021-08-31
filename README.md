@@ -34,5 +34,5 @@ Created by
 * [@jamiejpace](https://github.com/jamiejpace)
 * [@JeJones21](https://github.com/JeJones21)
 
-~ feel free to contact us! ~
-~ enjoy! ~
+Feel free to contact us!
+ 
