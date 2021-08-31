@@ -1,4 +1,4 @@
-###  Futbol
+###  Relational Rails: Booze & Brews
 ## Table of contents
 * [General info](#general-info)
 * [Screenshots](#screenshots)
