@@ -19,6 +19,7 @@ Relational Rails is a two person, 10 day project that creates a rails applicatio
 ## Technologies
 Project is created with:
 * Ruby version: 2.7.2
+* Rails 5.2.5
 * PostgreSQL
 * Capybara Gem
 * Orderly Gem
