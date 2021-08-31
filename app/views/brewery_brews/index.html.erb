@@ -3,13 +3,20 @@
 <a href="/boozes">Booze Index</a>
 <a href="/manufacturers">Manufacturers Index</a>
 <h1>List of Beers Brewed by <%= @brewery.name %></h1>
-<% @brews.order(:name).each do |brew| %>
+<% @brews.each do |brew| %>
   <h3><%= brew.name %></h3>
   <p>ABV: <%= brew.abv %></p>
   <p>Type: <%= brew.beer_type %></p>
   <p>Gluten free? <%= brew.gluten_free %></p>
   <p>Currently on tap? <%= brew.on_tap %></p>
   <p><%= link_to "Update #{brew.name}", "/brews/#{brew.id}/edit" %></p>
+  <p><%= link_to "Delete #{brew.name}", "/brews/#{brew.id}", method: :delete %></p>
 <% end %>
 <%= link_to "Create Brew", "/breweries/#{@brewery.id}/brews/new" %>
-<%= link_to "Sort Brews Alphabetically", "/breweries/#{@brewery.id}/brews" %>
+<%# <%= link_to "Sort Brews Alphabetically", brewery_brews_path(brewery_id: @brewery.id, sort_by: "name") %>  %>
+<%= form_with url: "/breweries/#{@brewery.id}/brews", method: :get, local: true do |form| %>
+  <%= form.label :abv %>
+  <%= form.text_field :abv %>
+
+  <%= form.submit "Only show brews with ABV more than 5.0" %>
+<% end %>
