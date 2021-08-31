@@ -1,6 +1,3 @@
-# As a visitor
-# When I visit '/parents/:parent_id/child_table_name'
-# Then I see each Child that is associated with that Parent with each Child's attributes:
 require 'rails_helper'
 
 RSpec.describe 'Manufacturer index' do
@@ -31,4 +28,17 @@ RSpec.describe 'Manufacturer index' do
       expect(page).to have_content(@baileys.proof)
       expect(page).to have_content(@don_julio.clear)
     end
+
+    it "can sort boozes in alphabetical order" do
+      visit "manufacturers/#{@diageo.id}/boozes"
+      save_and_open_page
+
+      click_link "Sort Booze Alphabetically"
+
+      expect(current_path).to eq("/manufacturers/#{@diageo.id}/boozes")
+      expect(@baileys.name).to appear_before(@don_julio.name)
+      expect(@don_julio.name).to appear_before(@tanqueray.name)
+    end
+
+    
   end

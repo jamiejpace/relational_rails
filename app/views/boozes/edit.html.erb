@@ -1,0 +1,14 @@
+<%= form_with url: "/boozes/#{@booze.id}", method: :patch, local: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :clear %>
+  <%= f.text_field :clear %>
+  <%= f.label :abv %>
+  <%= f.text_field :abv %>
+  <%= f.label :proof %>
+  <%= f.text_field :proof %>
+  <%= f.label :booze_type %>
+  <%= f.text_field :booze_type %>
+  
+  <%= f.submit "Update Booze" %>
+<% end %>

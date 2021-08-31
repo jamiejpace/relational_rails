@@ -3,11 +3,11 @@
 <a href="/boozes">Booze Index</a>
 <a href="/manufacturers">Manufacturers Index</a>
 <h1>Boozes</h1>
-<% @boozes.each do |booze| %>
+<% @boozes.is_clear?.each do |booze| %>
   <h3><%= booze.name %></h3>
   <p>Manufactured by: <%= booze.manufacturer.name %></p>
   <p>ABV: <%= booze.abv %></p>
   <p>Proof: <%= booze.proof %></p>
-  <p>Booze Type <%= booze.booze_type %></p>
+  <p>Booze Type: <%= booze.booze_type %></p>
   <p>Is It Clear? <%= booze.clear %></p>
 <% end %>

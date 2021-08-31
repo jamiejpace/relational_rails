@@ -42,4 +42,12 @@ RSpec.describe 'Manufacturer index' do
 
     expect(current_path).to eq('/boozes')
   end
+
+  it "only displays boozes that are clear" do
+    visit '/boozes'
+    save_and_open_page
+
+    expect(page).to have_content('Don Julio')
+    expect(page).to_not have_content('Woodford Reserve')
+  end
 end
