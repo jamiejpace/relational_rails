@@ -11,7 +11,7 @@
 ## General info
 This project is  a program dedicated to calculating soccer statistics. It takes data from csv files and reports statistics and creates a website with the analysis.
 ## Screenshots
-![Schema](https://user-images.githubusercontent.com/83834410/128053930-e7533171-74e3-49e4-981f-ec2d4b1ded3e.png)
+![Schema](https://user-images.githubusercontent.com/81520519/131570450-4084e6a0-2dca-49eb-90a8-5bfe36c0f317.png)
 ## Learning Goals
 * Build classes with single responsibilities.
 * Write organized readable code.
