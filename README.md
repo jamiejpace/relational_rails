@@ -1,55 +1,29 @@
 ###  Relational Rails: Booze & Brews
 ## Table of contents
-* [General info](#general-info)
+* [General Info](#general-info)
+* [Learning Goals] (#learning_goals)
 * [Screenshots](#screenshots)
-* [Learning Goals](#learning-goals)
 * [Technologies](#technologies)
-* [Setup](#setup)
-* [Features](#features)
 * [Status](#status)
 * [Contact](#contact)
-## General info
-This project is  a program dedicated to calculating soccer statistics. It takes data from csv files and reports statistics and creates a website with the analysis.
+## General Info
+Relational Rails is a two person, 10 day project that creates a rails application with two one-to-many relationships.
+## Learning Goals
+* Design a one to many relationship using a schema designer
+* Write migrations to create tables with columns of varying data types and foreign keys.
+* Use Rails to create web pages that allow users to CRUD resources
+* Create instance and class methods on a Rails model that use ActiveRecord methods and helpers
+* Write model and feature tests that fully cover data logic and user behavior
 ## Screenshots
 ![Schema](https://user-images.githubusercontent.com/81520519/131570867-389e9741-4ef9-4972-a8fe-7bb4658ef54c.png)
-## Learning Goals
-* Build classes with single responsibilities.
-* Write organized readable code.
-* Use TDD as a design strategy
-* Design an Object Oriented Solution to a problem
-* Practice algorithmic thinking
-* Work in a group
-* Use Pull Requests to collaborate among multiple partners
 ## Technologies
 Project is created with:
 * Ruby version: 2.7.2
-* HTML 5
-## Setup
-To run this program, save a copy of this repository locally. In the MacOS
-application 'Terminal,' navigate into the _futbol_ directory.
-Then, run it using ruby (note: '$' is not typed).
-1. Clone the repo using the web url:
-   ```
-   $ git clone https://github.com/mekimball/futbol
-   ```
-   or with a password-protected SSH key:
-   ```
-   $ git clone git@github.com:mekimball/futbol.git
-   ```
-2. Change into the directory:
-   ```
-   $ cd ../futbol
-   ```
-3. Generate file, then open webpage by entering the following into Terminal:
-   ```
-   $ ruby server.rb
-   $ open webpage/index.html
-   ```
-## Features
-List of features ready and TODOs for future development
-* Able to calculate league statistics
-* Able to calculate game statistics
-* Able to calculate statistics by specific team and season
+* PostgreSQL
+* Capybara Gem
+* Orderly Gem
+* Shoulda Matchers Gem
+* Launchy Gem
 
 ## Future Enhancements:
 * Make website pretty
