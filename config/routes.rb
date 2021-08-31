@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   post '/breweries/:id/brews', to: 'brewery_brews#create'
   delete '/brews/:id', to: 'brews#destroy'
 
+
   get '/manufacturers', to: 'manufacturers#index'
   get '/manufacturers/new', to: 'manufacturers#new'
   post '/manufacturers', to: 'manufacturers#create'

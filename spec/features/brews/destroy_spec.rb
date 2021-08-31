@@ -27,9 +27,9 @@ RSpec.describe 'destroy brew' do
     watermelon = platt_park.brews.create!(name: "Watermelon Sour", abv: 4.1, beer_type: "Sour", gluten_free: false, on_tap: true)
 
     visit "/brews/#{watermelon.id}"
-    save_and_open_page
+    
     click_link "Delete Brew"
-save_and_open_page
+
     expect(current_path).to eq('/brews')
     expect(page).to_not have_content("Watermelon Sour")
     expect(page).to_not have_link('Delete Brew')
