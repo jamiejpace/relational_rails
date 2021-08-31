@@ -27,7 +27,7 @@ RSpec.describe 'Brewery brews index' do
     expect(page).to have_content(@drumroll.on_tap)
   end
 
-  it 'has a link to sort brews in alphabetical order' do
+  xit 'has a link to sort brews in alphabetical order' do
     visit "/breweries/#{@odell.id}/brews"
 
     click_link 'Sort Brews Alphabetically'
@@ -46,5 +46,16 @@ RSpec.describe 'Brewery brews index' do
     click_link("Update #{@peach.name}")
 
     expect(current_path).to eq("/brews/#{@peach.id}/edit")
+  end
+
+  it 'has a form that returns records that meet threshold shown' do
+    visit "/breweries/#{@odell.id}/brews"
+
+    fill_in('Abv', with: '5.0')
+    click_button('Only show brews with ABV more than 5.0')
+
+    expect(current_path).to eq("/breweries/#{@odell.id}/brews")
+    expect(page).to have_content("Peach Stand Rambler Blonde Ale")
+    expect(page).to_not have_content("Sippin' Pretty Fruited Sour")
   end
 end
