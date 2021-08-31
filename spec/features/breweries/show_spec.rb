@@ -22,7 +22,6 @@ RSpec.describe 'Brewery show' do
     it "shows the brewery with that id including the brewery attributes" do
 
     visit "/breweries/#{@left_hand.id}"
-    save_and_open_page
 
     expect(page).to have_content(@left_hand.name)
     expect(page).to have_content(@left_hand.year_established)
@@ -31,14 +30,12 @@ RSpec.describe 'Brewery show' do
 
   it "shows the number of beers manufactured by this brewery" do
     visit "/breweries/#{@odell.id}"
-    save_and_open_page
 
     expect(page).to have_content(@left_hand.brews.count)
   end
 
   it 'displays a link on each page that takes user to the brew index per brewery' do
     visit "/breweries/#{@left_hand.id}"
-    save_and_open_page
 
     expect(page).to have_link("List of Their Brews", :href=>"/breweries/#{@left_hand.id}/brews")
 

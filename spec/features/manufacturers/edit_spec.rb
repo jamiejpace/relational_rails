@@ -4,7 +4,7 @@ RSpec.describe 'manufacturer edit' do
   it 'links to the edit page' do
     manufacturer = Manufacturer.create!(name: "JJ's Shitstillery", year_established: 2021, domestic: true)
     visit "/manufacturers/#{manufacturer.id}"
-    save_and_open_page
+    
     click_link "Update Manufacturer"
 
     expect(current_path).to eq("/manufacturers/#{manufacturer.id}/edit")

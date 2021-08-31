@@ -21,7 +21,7 @@ RSpec.describe 'Manufacturer index' do
 
   it 'shows all of the names of the manufacturers' do
     visit '/manufacturers'
-  
+
     expect(page).to have_content(@brown_forman.name)
     expect(page).to have_content(@diageo.name)
     expect(page).to have_content(@campari_group.name)
@@ -52,18 +52,18 @@ RSpec.describe 'Manufacturer index' do
     expect(current_path).to eq('/manufacturers')
   end
 
-    it "can add a links next to each manufacturer to edit said manufacturer" do
-      visit '/manufacturers'
-      save_and_open_page
+  it "can add a links next to each manufacturer to edit said manufacturer" do
+    visit '/manufacturers'
 
-      expect(page).to have_link("Update #{@brown_forman.name}", :href=>"/manufacturers/#{@brown_forman.id}/edit")
 
-      expect(page).to have_link("Update #{@diageo.name}", :href=>"/manufacturers/#{@diageo.id}/edit")
+    expect(page).to have_link("Update #{@brown_forman.name}", :href=>"/manufacturers/#{@brown_forman.id}/edit")
 
-      expect(page).to have_link("Update #{@campari_group.name}", :href=>"/manufacturers/#{@campari_group.id}/edit")
+    expect(page).to have_link("Update #{@diageo.name}", :href=>"/manufacturers/#{@diageo.id}/edit")
 
-      click_link("Update #{@diageo.name}")
+    expect(page).to have_link("Update #{@campari_group.name}", :href=>"/manufacturers/#{@campari_group.id}/edit")
 
-      expect(current_path).to eq("/manufacturers/#{@diageo.id}/edit")
-    end
+    click_link("Update #{@diageo.name}")
+
+    expect(current_path).to eq("/manufacturers/#{@diageo.id}/edit")
+  end
 end
