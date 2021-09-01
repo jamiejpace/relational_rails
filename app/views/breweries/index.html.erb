@@ -4,9 +4,9 @@
 <a href="/manufacturers">Manufacturers Index</a>
 <h1>Breweries</h1>
 <% @breweries.created_at_order.each do |brewery| %>
-  <p><%= brewery.name %> (created at: <%= brewery.created_at %>)</p>
-  <p><%= link_to "Update #{brewery.name}", "/breweries/#{brewery.id}/edit" %></p>
-  <p><%= link_to "Delete #{brewery.name}", "/breweries/#{brewery.id}", method: :delete %></p>
+  <h4><%= brewery.name %> (created at: <%= brewery.created_at %>)</h4>
+  <%= link_to "Update #{brewery.name}", "/breweries/#{brewery.id}/edit" %> ||
+  <%= link_to "Delete #{brewery.name}", "/breweries/#{brewery.id}", method: :delete %>
 <% end %>
 
-<%= link_to "New Brewery", "/breweries/new" %>
+<p><%= link_to "New Brewery", "/breweries/new" %></p>

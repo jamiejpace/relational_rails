@@ -3,6 +3,14 @@
 <a href="/boozes">Booze Index</a> |
 <a href="/manufacturers">Manufacturers Index</a>
 <h1>List of Beers Brewed by <%= @brewery.name %></h1>
+<%= link_to "Create Brew", "/breweries/#{@brewery.id}/brews/new" %> ||
+<%= link_to "Sort Brews Alphabetically", "/breweries/#{@brewery.id}/brews?sort_by=name" %>
+<p><%= form_with url: "/breweries/#{@brewery.id}/brews", method: :get, local: true do |form| %>
+  <%= form.label :abv_threshold %>
+  <%= form.number_field :abv_threshold, in: 0..100, step: 0.01 %>
+
+  <%= form.submit "Filter beers by ABV threshold" %>
+<% end %></p>
 <% @brews.each do |brew| %>
   <h3><%= brew.name %></h3>
   <p>ABV: <%= brew.abv %></p>
@@ -11,12 +19,4 @@
   <p>Currently on tap? <%= brew.on_tap %></p>
   <p><%= link_to "Update #{brew.name}", "/brews/#{brew.id}/edit" %></p>
   <p><%= link_to "Delete #{brew.name}", "/brews/#{brew.id}", method: :delete %></p>
-<% end %>
-<%= link_to "Create Brew", "/breweries/#{@brewery.id}/brews/new" %>
-<%= link_to "Sort Brews Alphabetically", "/breweries/#{@brewery.id}/brews?sort_by=name" %>
-<%= form_with url: "/breweries/#{@brewery.id}/brews", method: :get, local: true do |form| %>
-  <%= form.label :abv_threshold %>
-  <%= form.number_field :abv_threshold, in: 0..100, step: 0.01 %>
-
-  <%= form.submit "Filter beers by ABV threshold" %>
 <% end %>

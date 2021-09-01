@@ -24,8 +24,8 @@ RSpec.describe 'brews edit' do
     fill_in 'Name', with: "Astronaut Amber"
     fill_in 'Abv', with: 6.2
     fill_in 'Beer type', with: "Amber"
-    fill_in 'Gluten free', with: false
-    fill_in 'On tap', with: true
+    uncheck 'Gluten free'
+    check 'On tap'
 
     click_button "Update Brew"
 
