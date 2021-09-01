@@ -1,7 +1,13 @@
 class BreweryBrewsController < ApplicationController
   def index
     @brewery = Brewery.find(params[:id])
-    @brews = @brewery.brews
+    if params[:sort_by] == "name"
+      @brews = @brewery.brews.order(:name)
+    elsif params[:abv_threshold]
+      @brews = @brewery.brews.abv_threshold(params[:abv_threshold])
+    else
+      @brews = @brewery.brews
+    end
   end
 
   def new

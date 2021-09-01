@@ -1,6 +1,6 @@
-<a href="/brews">Brews Index</a>
-<a href="/breweries">Breweries Index</a>
-<a href="/boozes">Booze Index</a>
+<a href="/brews">Brews Index</a> |
+<a href="/breweries">Breweries Index</a> |
+<a href="/boozes">Booze Index</a> |
 <a href="/manufacturers">Manufacturers Index</a>
 <h1>List of Beers Brewed by <%= @brewery.name %></h1>
 <% @brews.each do |brew| %>
@@ -13,10 +13,10 @@
   <p><%= link_to "Delete #{brew.name}", "/brews/#{brew.id}", method: :delete %></p>
 <% end %>
 <%= link_to "Create Brew", "/breweries/#{@brewery.id}/brews/new" %>
-<%# <%= link_to "Sort Brews Alphabetically", brewery_brews_path(brewery_id: @brewery.id, sort_by: "name") %>  %>
+<%= link_to "Sort Brews Alphabetically", "/breweries/#{@brewery.id}/brews?sort_by=name" %>
 <%= form_with url: "/breweries/#{@brewery.id}/brews", method: :get, local: true do |form| %>
-  <%= form.label :abv %>
-  <%= form.text_field :abv %>
+  <%= form.label :abv_threshold %>
+  <%= form.number_field :abv_threshold, in: 0..100, step: 0.01 %>
 
-  <%= form.submit "Only show brews with ABV more than 5.0" %>
+  <%= form.submit "Filter beers by ABV threshold" %>
 <% end %>
