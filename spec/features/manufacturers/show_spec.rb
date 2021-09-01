@@ -22,7 +22,6 @@ RSpec.describe 'Manufacturer show' do
   it "shows the manufacturer with that id including the manufacturers     attributes" do
 
     visit "/manufacturers/#{@campari_group.id}"
-    save_and_open_page
 
     expect(page).to have_content(@campari_group.name)
     expect(page).to have_content(@campari_group.year_established)
@@ -31,14 +30,12 @@ RSpec.describe 'Manufacturer show' do
 
   it "shows the number of boozes manufactured by this company" do
     visit "/manufacturers/#{@diageo.id}"
-    save_and_open_page
 
     expect(page).to have_content(@diageo.boozes.count)
   end
 
   it 'displays a link on each page that takes user to the booze index per manufacturer' do
     visit "/manufacturers/#{@diageo.id}"
-    save_and_open_page
 
     expect(page).to have_link("List of Their Booze", :href=>"/manufacturers/#{@diageo.id}/boozes")
 

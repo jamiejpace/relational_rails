@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Manufacturer index' do
+RSpec.describe 'Manufacturer Boozes index' do
   before :each do
     @brown_forman = Manufacturer.create!(name: "Brown-Forman", year_established: 1870, domestic: true)
     @diageo = Manufacturer.create!(name: "Diageo", year_established: 1997, domestic: false)
@@ -21,7 +21,6 @@ RSpec.describe 'Manufacturer index' do
 
     it "can list each booze that is associated with that manufacturer with each booze's attributes" do
       visit "manufacturers/#{@diageo.id}/boozes"
-      save_and_open_page
 
       expect(page).to have_content(@don_julio.name)
       expect(page).to have_content(@tanqueray.abv)
@@ -31,7 +30,6 @@ RSpec.describe 'Manufacturer index' do
 
     it "can sort boozes in alphabetical order" do
       visit "manufacturers/#{@diageo.id}/boozes"
-      save_and_open_page
 
       click_link "Sort Booze Alphabetically"
 
@@ -40,5 +38,16 @@ RSpec.describe 'Manufacturer index' do
       expect(@don_julio.name).to appear_before(@tanqueray.name)
     end
 
-    
+    it "has a form that returns records that meets threshold shown" do
+      visit "manufacturers/#{@diageo.id}/boozes"
+
+      fill_in('Abv threshold', with: 40)
+
+      click_button "Filter booze by ABV threshold"
+
+      expect(current_path).to eq("/manufacturers/#{@diageo.id}/boozes")
+
+      expect(page).to have_content('Tanqueray')
+      expect(page).to_not have_content('Baileys')
+    end
   end
