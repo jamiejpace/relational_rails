@@ -4,7 +4,7 @@ RSpec.describe 'destroy brewery' do
   it 'has a link to delete brewery' do
     platt_park = Brewery.create!(name: "Platt Park Brewing", year_established: 2013, food_available: true)
     visit "/breweries/#{platt_park.id}"
-    save_and_open_page
+
     click_link "Delete Brewery"
 
     expect(current_path).to eq('/breweries')
@@ -13,7 +13,7 @@ RSpec.describe 'destroy brewery' do
   it "can delete the brewery and all that brewery's beers and return to index" do
     platt_park = Brewery.create!(name: "Platt Park Brewing", year_established: 2013, food_available: true)
     visit "/breweries/#{platt_park.id}"
-    save_and_open_page
+
     click_link "Delete Brewery"
 
     expect(current_path).to eq('/breweries')

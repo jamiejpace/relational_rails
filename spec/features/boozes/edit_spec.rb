@@ -6,7 +6,7 @@ RSpec.describe 'booze edit' do
     woodford_reserve = brown_forman.boozes.create!(name: "Woodford Reserve", clear: false, abv: 45.2, proof: 90, booze_type: "Bourbon")
 
     visit "/boozes/#{woodford_reserve.id}"
-    save_and_open_page
+  
     click_link "Update Booze"
 
     expect(current_path).to eq("/boozes/#{woodford_reserve.id}/edit")

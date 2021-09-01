@@ -1,6 +1,3 @@
-#As a visitor
-#When I visit '/child_table_name'
-#Then I see each Child in the system including the Child's attributes:
 require 'rails_helper'
 
 RSpec.describe 'Manufacturer index' do
@@ -24,7 +21,6 @@ RSpec.describe 'Manufacturer index' do
 
   it 'displays all of the names of the brews and their attributes' do
     visit '/boozes'
-    save_and_open_page
 
     expect(page).to have_content(@cabo_wabo.name)
     expect(page).to have_content(@don_julio.abv)
@@ -34,7 +30,6 @@ RSpec.describe 'Manufacturer index' do
 
   it 'displays a link at the top of each page that takes user to the booze index' do
     visit '/manufacturers'
-    save_and_open_page
 
     expect(page).to have_link("Booze Index", :href=>"/boozes")
 
@@ -45,7 +40,6 @@ RSpec.describe 'Manufacturer index' do
 
   it "only displays boozes that are clear" do
     visit '/boozes'
-    save_and_open_page
 
     expect(page).to have_content('Don Julio')
     expect(page).to_not have_content('Woodford Reserve')

@@ -1,7 +1,13 @@
 class ManufacturerBoozesController < ApplicationController
   def index
     @manufacturer = Manufacturer.find(params[:id])
-    @boozes = @manufacturer.boozes
+    if params[:sort_by] == "name"
+      @boozes = @manufacturer.boozes.order(:name)
+    elsif params[:abv_threshold]
+      @boozes = @manufacturer.boozes.abv_threshold(params[:abv_threshold])
+    else
+      @boozes = @manufacturer.boozes
+    end
   end
 
   def new
@@ -18,7 +24,4 @@ private
   def booze_params
     params.permit(:name, :clear, :abv, :proof, :booze_type)
   end
-  # def show
-  #   @manufacturer = Manufacturer.find(params[:id])
-  # end
 end

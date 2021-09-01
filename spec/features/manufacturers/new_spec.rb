@@ -11,11 +11,11 @@ RSpec.describe 'manfacturer creation' do
 
   it "can create a new manufacturer using a form" do
     visit '/manufacturers/new'
-    save_and_open_page
 
     fill_in('Name', with: 'Pernod Ricard SA')
     fill_in('Year established', with: 1975)
     fill_in('Domestic', with: false)
+    
     click_button('Create Manufacturer')
 
     expect(current_path).to eq('/manufacturers')

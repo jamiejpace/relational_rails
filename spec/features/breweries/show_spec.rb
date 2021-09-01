@@ -19,8 +19,7 @@ RSpec.describe 'Brewery show' do
     @drumroll = @odell.brews.create!(name: "Drumroll", abv: 5.3, beer_type: "Pale Ale", gluten_free: false, on_tap: false)
   end
 
-    it "shows the brewery with that id including the brewery attributes" do
-
+  it "shows the brewery with that id including the brewery attributes" do
     visit "/breweries/#{@left_hand.id}"
 
     expect(page).to have_content(@left_hand.name)

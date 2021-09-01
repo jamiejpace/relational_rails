@@ -21,7 +21,6 @@ RSpec.describe 'Manufacturer index' do
 
   it 'shows the booze with the given id including that boozes attributes' do
     visit "/boozes/#{@cabo_wabo.id}"
-    save_and_open_page
 
     expect(page).to have_content(@cabo_wabo.name)
     expect(page).to have_content(@cabo_wabo.abv)

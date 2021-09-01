@@ -7,7 +7,7 @@
 <%= link_to "Sort Brews Alphabetically", "/breweries/#{@brewery.id}/brews?sort_by=name" %>
 <p><%= form_with url: "/breweries/#{@brewery.id}/brews", method: :get, local: true do |form| %>
   <%= form.label :abv_threshold %>
-  <%= form.number_field :abv_threshold, in: 0..100, step: 0.01 %>
+  <%= form.number_field :abv_threshold, in: 0..100, step: 0.1 %>
 
   <%= form.submit "Filter beers by ABV threshold" %>
 <% end %></p>
