@@ -1,15 +1,15 @@
-<a href="/brews">Brews Index</a>
-<a href="/breweries">Breweries Index</a>
-<a href="/boozes">Booze Index</a>
+<a href="/brews">Brews Index</a> |
+<a href="/breweries">Breweries Index</a> |
+<a href="/boozes">Booze Index</a> |
 <a href="/manufacturers">Manufacturers Index</a>
 <h1>Brews</h1>
 <% @brews.is_on_tap.each do |brew| %>
-  <h3><%= brew.name %></h3>
+  <p><h3><%= brew.name %></h3></p>
   <p>Brewed by: <%= brew.brewery.name %></p>
   <p>ABV: <%= brew.abv %></p>
   <p>Type: <%= brew.beer_type %></p>
   <p>Gluten free? <%= brew.gluten_free %></p>
   <p>Currently on tap? <%= brew.on_tap %></p>
-  <p><%= link_to "Update #{brew.name}", "/brews/#{brew.id}/edit" %></p>
-  <p><%= link_to "Delete #{brew.name}", "/brews/#{brew.id}", method: :delete %></p>
+  <%= link_to "Update #{brew.name}", "/brews/#{brew.id}/edit" %> ||
+  <%= link_to "Delete #{brew.name}", "/brews/#{brew.id}", method: :delete %>
 <% end %>

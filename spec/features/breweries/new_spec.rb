@@ -26,7 +26,7 @@ RSpec.describe 'brewery creation' do
 
     fill_in('Name', with: 'Great Divide Brewing')
     fill_in('Year established', with: 2004)
-    fill_in('Food available', with: true)
+    check 'Food available'
     click_button('Create Brewery')
 
     expect(current_path).to eq('/breweries')

@@ -6,9 +6,9 @@
   <%= form.label :beer_type %>
   <%= form.text_field :beer_type %>
   <%= form.label :gluten_free %>
-  <%= form.text_field :gluten_free %>
+  <%= form.check_box :gluten_free %>
   <%= form.label :on_tap %>
-  <%= form.text_field :on_tap %>
+  <%= form.check_box :on_tap %>
 
   <%= form.submit "Create Brew" %>
 <% end %>

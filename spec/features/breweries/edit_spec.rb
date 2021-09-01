@@ -33,7 +33,7 @@ RSpec.describe 'brewery edit' do
 
     fill_in 'Name', with: "Great Divide Brewing"
     fill_in 'Year established', with: 2004
-    fill_in 'Food available', with: true
+    check 'Food available'
 
     click_button 'Submit changes'
 
